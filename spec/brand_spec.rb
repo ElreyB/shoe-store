@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Brand' do
-  let(:brand) { Brand.new({name: "nike"})}
+  let(:brand) { Brand.new({name: "nike", price: 50, size: 4})}
 
   describe '#capitalizes_name' do
     it 'will capitalizes every word in brand name' do
@@ -12,27 +12,36 @@ describe 'Brand' do
 
   context 'when name is left blank' do
     it 'validates presence of name' do
-      brand = Brand.new({name: ""})
+      brand = Brand.new({name: "", price: 50, size: 4})
       expect(brand.save).to eq false
     end
   end
 
   context 'when name is present' do
     it 'validates presence of name' do
-      brand = Brand.new({name: "Samnick"})
+      brand = Brand.new({name: "Samnick", price: 50, size: 4})
       expect(brand.save).to eq true
     end
   end
 
   it 'validates uniqueness of name' do
-    brand = Brand.new({name: "Reback"})
+    brand = Brand.new({name: "Reback", price: 50, size: 4})
     brand.save
-    brand2 = Brand.new({name: "Reback"})
+    brand2 = Brand.new({name: "Reback", price: 50, size: 4})
     expect(brand2.save).to eq false
   end
 
   it 'ensures the length of name is at most 100 characters' do
-    brand = Brand.new({name: ("a" * 101)})
+    brand = Brand.new({name: ("a" * 101), price: 50, size: 4})
     expect(brand.save).to eq false
+  end
+
+  describe '#currency_formater' do
+    it 'will save price input to currency format' do
+      brand = Brand.new({name: "Sneak", price: 50, size: 4})
+      brand.save
+      p brand.price
+      expect(brand.price).to eq "$50.00"
+    end
   end
 end

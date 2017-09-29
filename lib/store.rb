@@ -2,6 +2,7 @@ class Store < ActiveRecord::Base
   has_many :brands, through: :brands_stores
 
   validates(:name, {:presence => true, :uniqueness => true, :length => { :maximum => 100 }})
+  
 
   before_save(:capitalizes_name)
 
