@@ -13,7 +13,19 @@
       <div class="page-header">
         <h1> Shoe Store Organizer <small>Where 👟 shoes 👠 are 👞 made 👡 for 👢 walking...</small></h1>
       </div>
-      <%= yield %>
+      <div class="row">
+        <div class="col-xs-2">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="
+            "><a href="/">Home</a></li>
+            <li role="presentation"><a href="/store_list">Stores</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-10">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

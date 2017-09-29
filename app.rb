@@ -7,12 +7,21 @@ require 'pry'
 
 
 get("/") do
-  @stores = Store.all
   erb(:index)
+end
+
+get("/store_list") do
+  @stores = Store.all
+  erb(:store_list)
+end
+
+get("/stores/:id") do
+  @store = Store.find(params[:id])
+  erb(:stores)
 end
 
 post("/add_store") do
   store = Store.new({name: params['name']})
   store.save
-  redirect '/'
+  redirect 'stores_list'
 end
