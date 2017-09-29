@@ -30,6 +30,11 @@ get("/brand/:id") do
   erb(:brand)
 end
 
+get("/comments") do
+  @comments = Comment.all
+  erb(:comments)
+end
+
 post("/add_store") do
   store = Store.new({name: params['name']})
   if store.save
@@ -66,6 +71,11 @@ post("/add_brand/:id") do
   redirect back
 end
 
+post("/add_comment") do
+  comment = Comment.create({name: params['name'], email: params['email'], comment: params['comment']})
+  redirect '/comments'
+end
+
 patch("/update_name/store/:id") do
   store = Store.find(params[:id])
   store.update({name: params['update_name']})
@@ -94,4 +104,10 @@ delete("/delete_brand/:id") do
   brand = Brand.find(params[:id])
   Brand.where(id: brand.id).destroy_all
   redirect "brands_list"
+end
+
+delete("/delete_comment") do
+  comment = Comment.find(params['delete_comment'])
+  Comment.where(id: comment.id).destroy_all
+  redirect "comments"
 end

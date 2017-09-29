@@ -1,0 +1,42 @@
+<div class="well">
+  <form class="" action="add_comment" method="post">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" name="name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" name="email" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="name">Comments:</label>
+      <textarea name="comment" rows="8" cols="80"></textarea>
+    </div>
+    <button type="submit" name="button" class="btn">Thank you!</button>
+  </form>
+  <br>
+  <% if @comments.any? %>
+    <% @comments.each do |comment| %>
+      <ul>
+        <li>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <em><%= comment.name %> say....</em>
+            </div>
+            <div class="panel-body">
+              <p> <%= comment.comment %> </p>
+              <form class="" action="/delete_comment" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="hidden" name="delete_comment" value="<%= comment.id %>">
+                <button type="submit" name="button" class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+  <% else %>
+    <p>Currently no Comments.</p>
+  <% end %>
+
+</div>
