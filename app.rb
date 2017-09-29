@@ -7,5 +7,12 @@ require 'pry'
 
 
 get("/") do
+  @stores = Store.all
   erb(:index)
+end
+
+post("/add_store") do
+  store = Store.new({name: params['name']})
+  store.save
+  redirect '/'
 end
