@@ -25,6 +25,11 @@ get("/store/:id") do
   erb(:store)
 end
 
+get("/brand/:id") do
+  @brand = Brand.find(params[:id])
+  erb(:brand)
+end
+
 post("/add_store") do
   store = Store.new({name: params['name']})
   if store.save
@@ -48,22 +53,22 @@ post("/add_brand") do
   end
 end
 
-# post("/add_brand/:id") do
-#   store = Store.find(params[:id])
-#   brand_name = params['name']
-#   brand_price = params['price']
-#   brand = Brand.find_or_initialize(name: brand_name, price: brand_price)
-#
-#   if new_brand.id
-#     if !store.brands.include?(new_brand)
-#       store.brands.push(new_brand)
-#     end
-#   else
-#     new_brand.save
-#     store.brands.push(new_brand)
-#   end
-#   redirect back
-# end
+post("/add_brand/:id") do
+  store = Store.find(params[:id])
+  brand_name = params['name']
+  brand_price = params['price']
+  brand = Brand.find_or_initialize(name: brand_name, price: brand_price)
+
+  if new_brand.id
+    if !store.brands.include?(new_brand)
+      store.brands.push(new_brand)
+    end
+  else
+    new_brand.save
+    store.brands.push(new_brand)
+  end
+  redirect back
+end
 
 patch("/update_name/store/:id") do
   store = Store.find(params[:id])
