@@ -25,3 +25,9 @@ post("/add_store") do
   store.save
   redirect 'stores_list'
 end
+
+delete("/delete_store/:id") do
+  store = Store.find(params[:id])
+  Store.where(id: store.id).destroy_all
+  redirect "store_list"
+end

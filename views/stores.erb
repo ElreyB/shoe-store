@@ -1,11 +1,21 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"> <%= @store.name %> </h3>
+    <div class="row">
+      <div class="col-xs-10">
+        <h3 class="panel-title"> <%= @store.name %> </h3>
+      </div>
+      <div class="col-xs-2">
+        <form class="" action="/delete_store/<%= @store.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit" name="button" class="btn btn-danger">Delete Store</button>
+        </form>
+      </div>
+    </div>
   </div>
   <div class="panel-body">
     <div class="row">
       <div class="col-xs-6">
-        
+
       </div>
       <div class="col-xs-6">
 
