@@ -2,12 +2,12 @@
   <div class="panel-heading">
     <div class="row">
       <div class="col-xs-10">
-        <h3 class="panel-title"> <%= @brand.name %> </h3>
+        <h3 class="panel-title"> <%= @brand.name %>  Whole Sale Price: <%= @brand.price %> </h3>
       </div>
       <div class="col-xs-2">
         <form class="" action="/delete_brand/<%= @brand.id %>" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button type="submit" name="button" class="btn btn-danger">Delete Store</button>
+          <button type="submit" name="button" class="btn btn-danger">Delete Brand</button>
         </form>
       </div>
     </div>
@@ -21,22 +21,30 @@
               <label for="update_name">Change Store Name:</label>
               <input type="hidden" name="_method" value="patch">
               <input type="text" name="update_name" class="form-control">
-              <button type="submit" name="button" class="btn">Update Store Name</button>
+              <button type="submit" name="button" class="btn">Update Brand Name</button>
             </div>
           </form>
-          <form class="" action="/add_brand/<%= @brand.id %>" method="post">
+          <form class="" action="/update_price/brand/<%= @brand.id %>" method="post">
             <div class="form-group">
-              <label for="new-brand">New Shoe Brand:</label>
-              <input type="text" name="name" class="form-control">
-              <input type="text" name="price" class="form-control">
-              <button type="submit" name="button" class="btn">Add Shoe Brand</button>
+              <label for="update_price">Change Store Price:</label>
+              <input type="hidden" name="_method" value="patch">
+              <input type="text" name="update_price" class="form-control">
+              <button type="submit" name="button" class="btn">Update Brand Price</button>
             </div>
           </form>
         </div>
       </div>
       <div class="col-xs-6">
         <div class="well">
-
+          <% if @brand.stores.any? %>
+            <% @brand.stores.each do |store| %>
+              <ul>
+                <li><a href="/store/<%= store.id %>"> <%= store.name %> </a></li>
+              </ul>
+            <% end %>
+          <% else %>
+            <p>Currently no stores sells this brand.</p>
+          <% end %>
         </div>
       </div>
     </div>

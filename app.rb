@@ -69,11 +69,29 @@ end
 patch("/update_name/store/:id") do
   store = Store.find(params[:id])
   store.update({name: params['update_name']})
-  erb redirect "store/#{store.id}"
+  redirect "store/#{store.id}"
+end
+
+patch("/update_name/brand/:id") do
+  brand = Brand.find(params[:id])
+  brand.update({name: params['update_name']})
+  redirect "brand/#{brand.id}"
+end
+
+patch("/update_price/brand/:id") do
+  brand = Brand.find(params[:id])
+  brand.update({price: params['update_price']})
+  redirect "brand/#{brand.id}"
 end
 
 delete("/delete_store/:id") do
   store = Store.find(params[:id])
   Store.where(id: store.id).destroy_all
   redirect "stores_list"
+end
+
+delete("/delete_brand/:id") do
+  brand = Brand.find(params[:id])
+  Brand.where(id: brand.id).destroy_all
+  redirect "brands_list"
 end
