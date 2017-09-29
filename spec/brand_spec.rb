@@ -44,4 +44,18 @@ describe 'Brand' do
       expect(brand.price).to eq "$50.00"
     end
   end
+
+  context 'when price is not present' do
+    it 'validates presence of price' do
+      brand = Brand.new({name: "Smiths", size: 4})
+      expect(brand.save).to eq false
+    end
+  end
+
+  context 'when size is not present' do
+    it 'validates presence of size' do
+      brand = Brand.new({name: "Smiths", price: 4})
+      expect(brand.save).to eq false   
+    end
+  end
 end
