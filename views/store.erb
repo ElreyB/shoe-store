@@ -28,16 +28,30 @@
             <div class="form-group">
               <label for="new-brand">New Shoe Brand:</label>
               <input type="text" name="name" class="form-control">
-              <label for="brand-price">Brand Price:</label>
-              <input type="text" name="price" class="form-control">
               <button type="submit" name="button" class="btn">Add Shoe Brand</button>
             </div>
           </form>
         </div>
       </div>
       <div class="col-xs-6">
-        <div class="well">
-
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>Current Brands</h4>
+          </div>
+          <div class="panel-body">
+            <% if @store.brands.any? %>
+            <% @store.brands.each do |brand| %>
+            <ul>
+              <li> <%= brand.name %> </li>
+                <ul>
+                  <li>Whole Sale: <%= brand.price %> / <%= @store.name %> Price: N/A </li>
+                </ul>
+            </ul>
+            <% end %>
+            <% else %>
+            <p>Currently no brands in stock.</p>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 class Brand < ActiveRecord::Base
-  has_many :stores, through: :brands_stores
+  has_and_belongs_to_many :stores
 
   validates(:name, {:presence => true, :uniqueness => true, :length => { :maximum => 100 }})
   validates(:price, {:presence => true, on: :create})

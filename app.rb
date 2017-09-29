@@ -56,17 +56,13 @@ end
 post("/add_brand/:id") do
   store = Store.find(params[:id])
   brand_name = params['name']
-  brand_price = params['price']
-  brand = Brand.find_or_initialize(name: brand_name, price: brand_price)
-
-  if new_brand.id
-    if !store.brands.include?(new_brand)
-      store.brands.push(new_brand)
+  if brand_name != ""
+    brand = Brand.where(name: brand_name).first
+    if !store.brands.include?(brand)
+      store.brands.push(brand)
     end
-  else
-    new_brand.save
-    store.brands.push(new_brand)
   end
+  # binding.pry
   redirect back
 end
 
