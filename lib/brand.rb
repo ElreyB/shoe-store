@@ -2,7 +2,7 @@ class Brand < ActiveRecord::Base
   has_many :stores, through: :brands_stores
 
   validates(:name, {:presence => true, :uniqueness => true, :length => { :maximum => 100 }})
-  validates(:price, {:presence => true})
+  validates(:price, {:presence => true, on: :create})
   # validates(:size, {:presence => true})
 
   before_save(:currency_formater)

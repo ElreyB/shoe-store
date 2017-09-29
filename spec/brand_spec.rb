@@ -40,7 +40,6 @@ describe 'Brand' do
     it 'will save price input to currency format' do
       brand = Brand.new({name: "Sneak", price: 50})
       brand.save
-      p brand.price
       expect(brand.price).to eq "$50.00"
     end
   end
@@ -51,7 +50,14 @@ describe 'Brand' do
       expect(brand.save).to eq false
     end
   end
-  # 
+
+  context 'when name is presence but price is different' do
+    it 'validates uniqueness of name' do
+      brand = Brand.new({name: "Sneak", price: 45})
+      expect(brand.save).to eq false
+    end
+  end
+  #
   # context 'when size is not present' do
   #   it 'validates presence of size' do
   #     brand = Brand.new({name: "Smiths", price: 4})
