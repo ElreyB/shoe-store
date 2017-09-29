@@ -15,10 +15,20 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-xs-6">
-
+        <div class="well">
+          <form class="" action="/update_name/store/<%= @store.id %>" method="post">
+            <div class="form-group">
+              <input type="hidden" name="_method" value="patch">
+              <input type="text" name="update_name" class="form-control">
+            </div>
+            <button type="submit" name="button" class="btn">Update Store Name</button>
+          </form>
+        </div>
       </div>
       <div class="col-xs-6">
+        <div class="well">
 
+        </div>
       </div>
     </div>
   </div>

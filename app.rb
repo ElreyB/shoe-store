@@ -26,6 +26,12 @@ post("/add_store") do
   redirect 'stores_list'
 end
 
+patch("/update_name/store/:id") do
+  store = Store.find(params[:id])
+  store.update({name: params['update_name']})
+  erb redirect "stores/#{store.id}"
+end
+
 delete("/delete_store/:id") do
   store = Store.find(params[:id])
   Store.where(id: store.id).destroy_all
