@@ -3,7 +3,7 @@ class Brand < ActiveRecord::Base
 
   validates(:name, {:presence => true, :uniqueness => true, :length => { :maximum => 100 }})
   validates(:price, {:presence => true})
-  validates(:size, {:presence => true})
+  # validates(:size, {:presence => true})
 
   before_save(:currency_formater)
   before_save(:capitalizes_name)
