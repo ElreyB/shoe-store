@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Add Shoe Brand to Database</h3>
+    <form class="" action="/add_brand" method="post">
+      <div class="form-group">
+        <label for="name">Brand Name:</label>
+        <input type="text" name="name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="name">Brand Price:</label>
+        <input type="text" name="price" class="form-control">
+      </div>
+      <button type="submit" name="button" class="btn">Add Brand</button>
+    </form>
+  </div>
+  <div class="panel-body">
+    <% if @brands.any? %>
+      <% @brands.each do |brand| %>
+      <div class="row">
+        <div class="col-xs-6">
+          <ul>
+            <li><a href="/brand/<%= brand.id %>"> <%= brand.name %> </a></li>
+          </ul>
+        </div>
+        <div class="col-xs-6">
+          <ul>
+            <li> <%= brand.price %> </li>
+          </ul>
+        </div>
+      </div>
+      <% end %>
+    <% else %>
+      <p>Currently there are no brands in your database</p>
+    <% end %>
+  </div>
+</div>

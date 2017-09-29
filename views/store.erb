@@ -18,7 +18,7 @@
         <div class="well">
           <form class="" action="/update_name/store/<%= @store.id %>" method="post">
             <div class="form-group">
-              <label for="update_name">Change Store Name</label>
+              <label for="update_name">Change Store Name:</label>
               <input type="hidden" name="_method" value="patch">
               <input type="text" name="update_name" class="form-control">
               <button type="submit" name="button" class="btn">Update Store Name</button>
@@ -26,8 +26,9 @@
           </form>
           <form class="" action="/add_brand/<%= @store.id %>" method="post">
             <div class="form-group">
-              <label for="new-brand">New Shoe Brand</label>
-              <input type="text" name="new-brand" class="form-control">
+              <label for="new-brand">New Shoe Brand:</label>
+              <input type="text" name="name" class="form-control">
+              <input type="text" name="price" class="form-control">
               <button type="submit" name="button" class="btn">Add Shoe Brand</button>
             </div>
           </form>
