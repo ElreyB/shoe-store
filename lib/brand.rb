@@ -1,7 +1,7 @@
 class Brand < ActiveRecord::Base
   has_many :stores, through: :brands_stores
 
-  validates(:name, {:presence => true})
+  validates(:name, {:presence => true, :uniqueness => true})
   before_save(:capitalizes_name)
 
   private
