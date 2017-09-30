@@ -1,18 +1,85 @@
 .error-container {
   text-align: center;
-  background-color: #000602;
+  background-color: #050108;
 }
 
-.error-title {
+.error-title, ol.error-list {
   color: #e90613;
 }
 
 ol.error-list{
   display: inline-block;
   text-align:left;
-  color: #fefefe;
 }
 
 .bs-example {
   margin: 20px;
+}
+
+body, .nav a {
+  background-color: #2E0F15;
+  color: #95B2B8;
+
+}
+
+a {
+  color: #95B2B8;
+}
+
+.nav {
+  font-size: 30px;
+}
+
+.intro-container {
+  background-color: #70163C;
+}
+
+.page-header, .nav{
+  font-family: 'Fredericka the Great', cursive;
+}
+
+.page-title {
+  font-size: 50px;
+}
+
+h1 small {
+  font-size: 47%;
+}
+
+.panel-heading{
+  background-color: #307351;
+}
+
+.panel-body {
+  background-color: #70163C;
+}
+
+.panel-primary {
+  border-color: #ffffff;
+}
+
+.panel-warning>.panel-heading {
+  background-color: #9a8d44;
+}
+
+.store {
+  background-color: #124a2e;
+  border-color: #ffffff;
+}
+
+.store-li {
+  font-size: 26px;
+  list-style-type: square
+}
+
+button.store {
+  background-color: #70163C;
+}
+
+.col-xs-2.button {
+  padding-top: 24px;
+}
+
+.store-emoji {
+  font-size: 40px;
 }

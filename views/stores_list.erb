@@ -1,19 +1,37 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3>Add Shoe Store to Database</h3>
+<div class="panel">
+  <div class="panel-heading store">
+    <h3 >
+      <div class="row">
+        <div class="col-xs-1 col-xs-offset-3 store-emoji">
+          🏬
+        </div>
+        <div class="col-xs-4">
+          Add Shoe Store to Database
+        </div>
+        <div class="col-xs-1 store-emoji">
+          🏬
+        </div>
+      </div>
+    </h3>
     <form class="" action="/add_store" method="post">
       <div class="form-group">
         <label for="name">Store Name:</label>
-        <input type="text" name="name" class="form-control">
-      </div>
-      <button type="submit" name="button" class="btn">Add Store</button>
+        <div class="row">
+          <div class="col-xs-8">
+            <input type="text" name="name" class="form-control">
+          </div>
+          <div class="col-xs-4">
+            <button type="submit" name="button" class="btn store">Add Store</button>
+          </div>
+          </div>
+        </div>
     </form>
   </div>
   <div class="panel-body">
     <% if @stores.any? %>
       <% @stores.each do |store| %>
         <ul>
-          <li><a href="/store/<%= store.id %>"> <%= store.name %> </a></li>
+          <li class="store-li"><a href="/store/<%= store.id %>"> <%= store.name %> </a></li>
         </ul>
       <% end %>
     <% else %>

@@ -1,8 +1,8 @@
 <div class="jumbotron error-container">
-  <h2 class="error-title">Oops there were some errors:</h2>
+  <p class="error-title">Oops there were some errors:</p>
   <ol class="error-list">
     <% @error_type.errors().full_messages().each() do |message| %>
-      <h3><li><%= message %></li></h3>
+      <li><%= message %></li>
     <% end %>
   </ol>
 
