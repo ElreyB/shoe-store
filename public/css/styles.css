@@ -83,3 +83,8 @@ button.store {
 .store-emoji {
   font-size: 40px;
 }
+
+.well.comment-container {
+  width: 500px;
+  margin: 0 auto;
+}

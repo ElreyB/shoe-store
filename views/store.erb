@@ -55,7 +55,7 @@
             <% if @store.brands.any? %>
             <% @store.brands.each do |brand| %>
             <ul>
-              <li> <%= brand.name %> </li>
+              <li class="store-li"> <%= brand.name %> </li>
                 <ul>
                   <li>Whole Sale: <%= brand.price %> / <%= @store.name %> Price: N/A </li>
                 </ul>
