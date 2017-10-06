@@ -36,7 +36,11 @@
               <label for="new-brand">New Shoe Brand:</label>
               <div class="row">
                 <div class="col-xs-8">
-                  <input type="text" name="name" class="form-control">
+                  <select class="form-control input-lg col-xs-4" name="name">
+                    <% @brands.each do |brand| %>
+                      <option value="<%=brand.name%>"><%=brand.name%></option>
+                    <% end %>
+                  </select>
                 </div>
                 <div class="col-xs-3">
                   <button type="submit" name="button" class="btn store">Add Shoe Brand</button>

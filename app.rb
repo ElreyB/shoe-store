@@ -22,6 +22,7 @@ end
 
 get("/store/:id") do
   @store = Store.find(params[:id])
+  @brands = Brand.all
   erb(:store)
 end
 
