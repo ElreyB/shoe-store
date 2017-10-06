@@ -33,12 +33,12 @@
       </div>
     </form>
   </div>
-  <div class="panel-body">
+  <div class="panel-body brand-container">
     <% if @brands.any? %>
       <% @brands.each do |brand| %>
       <div class="row">
         <div class="col-xs-6">
-          <ul>
+          <ul class="list-unstyled">
             <li class="store-li"><a href="/brand/<%= brand.id %>"> <%= brand.name %> </a></li>
           </ul>
         </div>

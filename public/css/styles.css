@@ -88,3 +88,9 @@ button.store {
   width: 500px;
   margin: 0 auto;
 }
+
+.brand-container {
+  max-height: 490px;
+  overflow: auto;
+  text-align: center;
+}

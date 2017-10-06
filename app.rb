@@ -4,7 +4,16 @@ Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 require 'pry'
-
+brands = []
+File.open('brands.txt', 'r') do |file|
+  while file_line = file.gets
+    brands.push(file_line.delete("\n"))
+  end
+end
+brands = brands.sort
+brands.each do |brand|
+  new_brand = Brand.create({name: brand, price: rand(20..200)})
+end
 
 get("/") do
   erb(:index)
